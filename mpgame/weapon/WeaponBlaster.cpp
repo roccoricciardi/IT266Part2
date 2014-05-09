@@ -145,6 +145,8 @@ bool rvWeaponBlaster::UpdateAttack ( void ) {
 rvWeaponBlaster::Spawn
 ================
 */
+
+
 void rvWeaponBlaster::Spawn ( void ) {
 	viewModel->SetShaderParm ( BLASTER_SPARM_CHARGEGLOW, 0 );
 	SetState ( "Raise", 0 );
@@ -159,8 +161,10 @@ void rvWeaponBlaster::Spawn ( void ) {
 	Flashlight ( owner->IsFlashlightOn() );
 }
 
-/*
-================
+
+
+
+/*================
 rvWeaponBlaster::Save
 ================
 */
