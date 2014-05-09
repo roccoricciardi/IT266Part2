@@ -11553,8 +11553,6 @@ idPlayer::Event_AllowFallDamage
 */
 void idPlayer::Event_AllowFallDamage( int toggle ) {
 	if( toggle )	{
-		pfl.noFallingDamage = false;
-	} else {
 		pfl.noFallingDamage = true;
 	}
 
