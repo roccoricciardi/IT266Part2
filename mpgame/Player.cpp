@@ -1514,7 +1514,9 @@ void idPlayer::Init( void ) {
 	oldButtons				= 0;
 	oldFlags				= 0;
 
-	currentWeapon			= -1;
+
+	//ROCCORICCIARDI trying to see if this will make gauntlet default
+	currentWeapon			= 1;
 	idealWeapon				= -1;
 	previousWeapon			= -1;
 	weaponSwitchTime		= 0;
