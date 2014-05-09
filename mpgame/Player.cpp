@@ -969,7 +969,7 @@ bool idInventory::Give( idPlayer *owner, const idDict &spawnArgs, const char *st
 					if ( !checkOnly ) {
  						weapons |= ( 1 << i );
 					}
- 					tookWeapon = false;
+ 					tookWeapon = false;//ROCCORICCIARDIchanged to false
  				}
   			}
 		}
@@ -983,7 +983,7 @@ bool idInventory::Give( idPlayer *owner, const idDict &spawnArgs, const char *st
 		return false;
 	}
 
-	return false;
+	return false;//ROCCORICCIARDIchanged to false
 }
 
 /*
@@ -4292,13 +4292,13 @@ bool idPlayer::GiveItem( idItem *item ) {
 				//to pick up the weapon in the first place!
 				arg = attr.FindKey( "weapon" );
 				if ( arg ) {
-					skipWeaponKey = true;
+					skipWeaponKey = false;//ROCCORICCIARDIchanged to false
 					if ( Give( arg->GetKey(), arg->GetValue(), dropped ) ) {
-						gave = true;
+						gave = false;//ROCCORICCIARDIchanged to false
 					} else if ( !dropped//not a dropped weapon
 						&& gameLocal.IsWeaponsStayOn() ) {
 						//if failed to give weapon, don't give anything else with the weapon
-						skipRestOfKeys = true;
+						skipRestOfKeys = false;//ROCCORICCIARDIchanged to false
 					}
 				}
 			}
