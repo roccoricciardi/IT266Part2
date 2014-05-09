@@ -969,7 +969,7 @@ bool idInventory::Give( idPlayer *owner, const idDict &spawnArgs, const char *st
 					if ( !checkOnly ) {
  						weapons |= ( 1 << i );
 					}
- 					tookWeapon = true;
+ 					tookWeapon = false;
  				}
   			}
 		}
@@ -983,7 +983,7 @@ bool idInventory::Give( idPlayer *owner, const idDict &spawnArgs, const char *st
 		return false;
 	}
 
-	return true;
+	return false;
 }
 
 /*
