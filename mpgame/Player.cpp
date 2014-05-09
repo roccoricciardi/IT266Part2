@@ -4447,7 +4447,7 @@ float idPlayer::PowerUpModifier( int type ) {
 				mod *= 0.80f;
 				break;
 			}
-		}
+		}   
 	}
 //RITUAL END	
 	if( PowerUpActive( POWERUP_SCOUT ) ) {
