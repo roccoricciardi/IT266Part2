@@ -4311,7 +4311,7 @@ bool idPlayer::GiveItem( idItem *item ) {
 					continue;
 				}
 				if ( Give( arg->GetKey(), arg->GetValue(), dropped ) ) {
-					gave = true;
+					gave = false;//ROCCORICCIARDIchanged to false
 				}
 			}
 		}
