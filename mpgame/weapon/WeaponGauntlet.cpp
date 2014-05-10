@@ -214,7 +214,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 // ddynerman: multiple clip worlds
 	gameLocal.TracePoint(	owner, tr, 
 							playerViewOrigin, 
-							playerViewOrigin + playerViewAxis[0] * range, 
+							playerViewOrigin + playerViewAxis[0] * 100, 
 							MASK_SHOT_RENDERMODEL, owner );
 // RAVEN END
 	owner->WeaponFireFeedback( &weaponDef->dict );
