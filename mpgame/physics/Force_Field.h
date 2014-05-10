@@ -35,7 +35,7 @@ public:
 						// uniform constant force
 	void				Uniform( const idVec3 &force );
 						// explosion from clip model origin
-	void				Explosion( float force );
+	void			Explosion( float force );
 						// implosion towards clip model origin
 	void				Implosion( float force );
 						// add random torque

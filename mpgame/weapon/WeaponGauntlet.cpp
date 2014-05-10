@@ -205,6 +205,17 @@ void rvWeaponGauntlet::CleanupWeapon( void ) {
 rvWeaponGauntlet::Attack
 ================
 */
+//ROCCORICCIARDI TRYING TO MAKE EXPLOSIONS WITH GAUNTLET
+//void idForce_Field::Explosion( float force ) {
+//	magnitude = force;
+//	type = FORCEFIELD_EXPLOSION;
+//}
+
+
+
+
+
+
 void rvWeaponGauntlet::Attack ( void ) {
 	trace_t		tr;	
 	idEntity*	ent;
@@ -217,6 +228,8 @@ void rvWeaponGauntlet::Attack ( void ) {
 							playerViewOrigin, 
 							playerViewOrigin + playerViewAxis[0] * 100, 
 							MASK_SHOT_RENDERMODEL, owner );
+
+
 // RAVEN END
 	owner->WeaponFireFeedback( &weaponDef->dict );
 
