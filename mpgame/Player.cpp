@@ -10217,7 +10217,7 @@ void idPlayer::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 	}
 		
 // RAVEN BEGIN
-// MCG - added damage over time
+// MCG - added damage over time 
 	if ( !inDamageEvent ) {
 		if ( damageDef->dict.GetFloat( "dot_duration" ) ) {
 			int endTime;
