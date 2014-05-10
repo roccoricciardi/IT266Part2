@@ -98,7 +98,7 @@ void rvWeaponGauntlet::Spawn ( void ) {
 	bladeSpinSlow	= spawnArgs.GetAngles ( "blade_spinslow" );
 	bladeAccel		= SEC2MS ( spawnArgs.GetFloat ( "blade_accel", ".25" ) );
 	
-	range			= spawnArgs.GetFloat ( "range", "32" );
+	range			= spawnArgs.GetFloat ( "range", "100" );
 
 	impactMaterial = -1;
 	impactEffect   = NULL;
