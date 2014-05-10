@@ -8645,11 +8645,16 @@ void idPlayer::EvaluateControls( void ) {
 // RITUAL BEGIN
 // squirrel: added DeadZone multiplayer mode
 		if( allowedToRespawn ) {
+		
+		/* ROCCORICCIARDI TRYING TO REMOVE RESAWNING	
 		if ( ( gameLocal.time > minRespawnTime ) && ( usercmd.buttons & BUTTON_ATTACK ) ) {
 			forceRespawn = true;
 		} else if ( gameLocal.time > maxRespawnTime ) {
 			forceRespawn = true;
 		}
+		*/
+
+		allowedToRespawn = false;
 	}
 		else
 		{
