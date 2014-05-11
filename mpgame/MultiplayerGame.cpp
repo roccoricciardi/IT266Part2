@@ -277,6 +277,25 @@ void idMultiplayerGame::Reset() {
 		light->allowLightInViewID = 0;
 	}
 
+	light = &lights[ IT_PLAYER ];
+	shader = "lights/mpCTFLight";
+	if ( shader && *shader ) {
+		light->axis.Identity();
+		light->shader = declManager->FindMaterial( shader, false );
+		light->lightRadius[0] = light->lightRadius[1] = light->lightRadius[2] = 64.0f;
+		light->shaderParms[ SHADERPARM_RED ]	= 255.0f / 255.0f;
+		light->shaderParms[ SHADERPARM_GREEN ]	= 45.0f / 255.0f; 
+		light->shaderParms[ SHADERPARM_BLUE ]	= 0.0f;
+		light->shaderParms[ SHADERPARM_ALPHA ]	= 1.0f;
+		light->detailLevel = DEFAULT_LIGHT_DETAIL_LEVEL;
+		light->pointLight = true;
+		light->noShadows = true;
+		light->noDynamicShadows = true;
+		light->lightId = -MPLIGHT_CTF_STROGG;
+		light->allowLightInViewID = 0;
+	}
+
+
 	PACIFIER_UPDATE;
 	ClearGuis();
 
