@@ -728,8 +728,7 @@ private:
 		MPLIGHT_QUAD,
 		MPLIGHT_HASTE,
 		MPLIGHT_REGEN,
-		MPLIGHT_MAX,
-		IT_PLAYER
+		MPLIGHT_MAX
 	};
 
 	int				lightHandles[ MPLIGHT_MAX ];
