@@ -220,6 +220,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 	trace_t		tr;	
 	idEntity*	ent;
 	int			knockback;
+	bool		it;
 	
 	// Cast a ray out to the lock range
 // RAVEN BEGIN
@@ -294,27 +295,30 @@ void rvWeaponGauntlet::Attack ( void ) {
 	}
 	
 	// Do damage?
-	if ( gameLocal.time > nextAttackTime ) {					
-		if ( ent ) {
-			if ( ent->fl.takedamage ) {
-				float dmgScale = 3.0f;
-				knockback *= 100;
-				dmgScale *= owner->PowerUpModifier( PMOD_MELEE_DAMAGE );
-				ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), dmgScale, 0 );
-				StartSound( "snd_hit", SND_CHANNEL_ANY, 0, false, NULL );
-				if ( ent->spawnArgs.GetBool( "bleed" ) ) {
-					PlayLoopSound( LOOP_FLESH );
+	if(it == true)//ROCCORICCIARDI
+		if ( gameLocal.time > nextAttackTime ) {					
+			if ( ent ) {
+				if ( ent->fl.takedamage ) {
+					float dmgScale = 3.0f;
+					knockback *= 100;
+					dmgScale *= owner->PowerUpModifier( PMOD_MELEE_DAMAGE );
+					ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), dmgScale, 0 );
+					StartSound( "snd_hit", SND_CHANNEL_ANY, 0, false, NULL );
+					if ( ent->spawnArgs.GetBool( "bleed" ) ) {
+						PlayLoopSound( LOOP_FLESH );
+					} else {
+						PlayLoopSound( LOOP_WALL );
+					}
 				} else {
 					PlayLoopSound( LOOP_WALL );
 				}
 			} else {
-				PlayLoopSound( LOOP_WALL );
+				PlayLoopSound( LOOP_NONE );
 			}
-		} else {
-			PlayLoopSound( LOOP_NONE );
+			nextAttackTime = gameLocal.time + fireRate;
 		}
-		nextAttackTime = gameLocal.time + fireRate;
-	}
+	else
+		return;//ROCCORICCIARDI
 }
 
 /*
