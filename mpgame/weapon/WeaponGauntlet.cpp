@@ -319,7 +319,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 		}
 	else
 		return;//ROCCORICCIARDI
-}
+}  
 
 /*
 ================
