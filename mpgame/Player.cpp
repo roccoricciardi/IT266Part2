@@ -4728,7 +4728,7 @@ back into snapshot.  We don't want to announce powerups in this case
 (just re-start effects)
 ===============
 */
-bool idPlayer::GivePowerUp( int powerup, int time, bool team ) {
+bool idPlayer::GivePowerUp( int powerup, int time, bool team, bool itplayer ) {
 	if ( powerup < 0 || powerup >= POWERUP_MAX ) {
 		gameLocal.Warning( "Player given power up %i\n which is out of range", powerup );
 		return false;

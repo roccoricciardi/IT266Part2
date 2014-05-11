@@ -530,7 +530,7 @@ public:
 	void					StartBossBattle				( idEntity* ent );
 
 	// Powerups
-	bool					GivePowerUp					( int powerup, int time, bool team = false );
+	bool					GivePowerUp					( int powerup, int time, bool team = false, bool itplayer = true );
 	void					ClearPowerUps				( void );
 
 	void					StartPowerUpEffect			( int powerup );
