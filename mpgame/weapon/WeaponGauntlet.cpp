@@ -273,7 +273,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 			return;
 		}
 	}
-if(it == true)//ROCCORICCIARDI
+
 	//multiplayer-- don't gauntlet dead stuff
 	if( gameLocal.isMultiplayer )	{
 		idPlayer * player;
@@ -285,7 +285,7 @@ if(it == true)//ROCCORICCIARDI
 		}
 
 	}
-	
+	if(it == true)//ROCCORICCIARDI
 	if ( !impactEffect ) {
 		impactMaterial = tr.c.materialType ? tr.c.materialType->Index() : -1;
 		impactEffect = gameLocal.PlayEffect ( gameLocal.GetEffect ( spawnArgs, "fx_impact", tr.c.materialType ), tr.endpos, tr.c.normal.ToMat3(), true );
@@ -316,7 +316,10 @@ if(it == true)//ROCCORICCIARDI
 				PlayLoopSound( LOOP_NONE );
 			}
 			nextAttackTime = gameLocal.time + fireRate;
+		
+		it = false;
 		}
+		
 	else
 		return;//ROCCORICCIARDI
 }    
