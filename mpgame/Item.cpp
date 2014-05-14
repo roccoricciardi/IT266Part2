@@ -706,6 +706,7 @@ bool idItem::Pickup( idPlayer *player ) {
 	}
 
 	pickedUp = true;
+	player->it = true;
 
 	// allow SetSkin or Hide() to get called regardless of simpleitem mode
 	if( simpleItem ) {

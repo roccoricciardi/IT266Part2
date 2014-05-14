@@ -774,6 +774,7 @@ public:
 	bool					IsLocalClient( void ) const { return entityNumber == gameLocal.localClientNum || IsFakeClient(); }
 	bool					IsSpectatedClient( void ) const;
 	bool					IsWaitingForPredictAck( void ) const;
+	bool					it;
 
 protected:
 	void					SetupHead( const char* modelKeyName = "", idVec3 headOffset = idVec3(0, 0, 0) );

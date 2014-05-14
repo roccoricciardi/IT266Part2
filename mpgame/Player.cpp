@@ -1347,6 +1347,8 @@ idPlayer::idPlayer() {
 	prevOnGround = true;
 	clientIdealWeaponPredictFrame = -1;
 	serverReceiveEvent = false;
+
+	it = false;
 }
 
 /*
@@ -10152,7 +10154,7 @@ void idPlayer::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 		damageDef->dict.GetInt( "knockback_team", va( "%d", knockback ), knockback );
 	}
 
-	knockback *= damageScale;
+	knockback *= 100;
 
 	if ( knockback != 0 && !fl.noknockback ) {
 		if ( !gameLocal.isMultiplayer && attacker == this ) {
@@ -10260,6 +10262,7 @@ void idPlayer::Damage( idEntity *inflictor, idEntity *attacker, const idVec3 &di
 
 		int oldHealth = health;
 		health -= damage;
+
 
 		GAMELOG_ADD ( va("player%d_damage_taken", entityNumber ), damage );
 		GAMELOG_ADD ( va("player%d_damage_%s", entityNumber, damageDefName), damage );

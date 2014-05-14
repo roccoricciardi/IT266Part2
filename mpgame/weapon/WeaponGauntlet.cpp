@@ -285,7 +285,6 @@ void rvWeaponGauntlet::Attack ( void ) {
 		}
 
 	}
-	if(it == true)//ROCCORICCIARDI
 	if ( !impactEffect ) {
 		impactMaterial = tr.c.materialType ? tr.c.materialType->Index() : -1;
 		impactEffect = gameLocal.PlayEffect ( gameLocal.GetEffect ( spawnArgs, "fx_impact", tr.c.materialType ), tr.endpos, tr.c.normal.ToMat3(), true );
@@ -302,7 +301,12 @@ void rvWeaponGauntlet::Attack ( void ) {
 					float dmgScale = 20.0f;
 					knockback *= 100;
 					dmgScale *= owner->PowerUpModifier( PMOD_MELEE_DAMAGE );
-					ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), dmgScale, 0 );
+					if(ent->IsType( idPlayer::GetClassType() ) && (static_cast < idPlayer * >( ent )->it == false && owner->it == true))//ROCCORICCIARDI
+					{
+						ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), dmgScale, 0 );
+						owner->it = false;
+						static_cast < idPlayer * >( ent )->it = true;//ROCCORICCIARDI
+					}
 					StartSound( "snd_hit", SND_CHANNEL_ANY, 0, false, NULL );
 					if ( ent->spawnArgs.GetBool( "bleed" ) ) {
 						PlayLoopSound( LOOP_FLESH );
@@ -317,11 +321,10 @@ void rvWeaponGauntlet::Attack ( void ) {
 			}
 			nextAttackTime = gameLocal.time + fireRate;
 		
-		it = false;
+		
 		}
 		
-	else
-		return;//ROCCORICCIARDI
+
 }    
 
 /*
