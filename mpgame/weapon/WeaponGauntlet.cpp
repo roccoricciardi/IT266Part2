@@ -303,9 +303,11 @@ void rvWeaponGauntlet::Attack ( void ) {
 					dmgScale *= owner->PowerUpModifier( PMOD_MELEE_DAMAGE );
 					if(ent->IsType( idPlayer::GetClassType() ) && (static_cast < idPlayer * >( ent )->it == false && owner->it == true))//ROCCORICCIARDI
 					{
-						ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), dmgScale, 0 );
+						ent->Damage ( owner, owner, playerViewAxis[0], spawnArgs.GetString ( "def_damage" ), 0.01f, 0 );
 						owner->it = false;
-						static_cast < idPlayer * >( ent )->it = true;//ROCCORICCIARDI
+						owner->ClearPowerUps();
+						static_cast < idPlayer * >( ent )->it = true;
+						static_cast < idPlayer * >( ent )->GivePowerUp( POWERUP_QUADDAMAGE, SEC2MS( 30.0f ) );//ROCCORICCIARDI
 					}
 					StartSound( "snd_hit", SND_CHANNEL_ANY, 0, false, NULL );
 					if ( ent->spawnArgs.GetBool( "bleed" ) ) {
