@@ -273,7 +273,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 			return;
 		}
 	}
-
+if(it == true)//ROCCORICCIARDI
 	//multiplayer-- don't gauntlet dead stuff
 	if( gameLocal.isMultiplayer )	{
 		idPlayer * player;
@@ -295,7 +295,7 @@ void rvWeaponGauntlet::Attack ( void ) {
 	}
 	
 	// Do damage?
-	if(it == true)//ROCCORICCIARDI
+	
 		if ( gameLocal.time > nextAttackTime ) {					
 			if ( ent ) {
 				if ( ent->fl.takedamage ) {
